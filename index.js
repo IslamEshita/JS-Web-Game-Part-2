@@ -1,4 +1,4 @@
-// Make inventory local
+// Make inventory global
 let inventory;
 
 function newImage(url, left, bottom){
@@ -16,13 +16,17 @@ function newItem(url, left, bottom){
     item.addEventListener('click', function() {
         console.log(item);
         item.remove();
-
-        // Add item to the inventory
-        let inventoryitem = document.createElement('img')
-        inventoryitem.src = url
-        inventory.append(inventoryitem);
-        console.log('Item added to inventory')
+        addToInventory(url);       
     })
+}
+
+function addToInventory(url)
+{
+     // Add item to the inventory
+     let inventoryitem = document.createElement('img')
+     inventoryitem.src = url
+     inventory.append(inventoryitem);
+     console.log('Item added to inventory')
 }
 
 
