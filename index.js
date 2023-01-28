@@ -1,3 +1,6 @@
+// Make inventory local
+let inventory;
+
 function newImage(url, left, bottom){
     let object = document.createElement('img')
     object.src = url
@@ -13,12 +16,18 @@ function newItem(url, left, bottom){
     item.addEventListener('click', function() {
         console.log(item);
         item.remove();
+
+        // Add item to the inventory
+        let inventoryitem = document.createElement('img')
+        inventoryitem.src = url
+        inventory.append(inventoryitem);
+        console.log('Item added to inventory')
     })
 }
 
 
 function newInventory(){
-    let inventory = document.createElement('div')
+    inventory = document.createElement('div')
     inventory.style.position = 'fixed'
     inventory.style.bottom = '0px';
     inventory.style.left = '0px'
